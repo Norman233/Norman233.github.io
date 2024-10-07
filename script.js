@@ -5,8 +5,9 @@ const navLinks = document.querySelector('.nav-links');
 burger.addEventListener('click', () => {
     navLinks.classList.toggle('nav-active');
     burger.classList.toggle('toggle');
+});
 
-    // Fetch random user from the RandomUser API
+// Fetch random user from the RandomUser API
 const getRandomUser = async () => {
     try {
         const response = await fetch('https://randomuser.me/api/');
@@ -15,11 +16,11 @@ const getRandomUser = async () => {
 
         // Get random user's image and name
         const userImage = user.picture.large;
-        const userName = `${user.name.first} ${user.name.last}`;
+        //const userName = `${user.name.first} ${user.name.last}`;
 
         // Update HTML with fetched data
         document.getElementById('random-user-img').src = userImage;
-        document.getElementById('random-user-name').textContent = userName;
+       // document.getElementById('random-user-name').textContent = userName;
     } catch (error) {
         console.error('Error fetching random user:', error);
     }
@@ -27,5 +28,3 @@ const getRandomUser = async () => {
 
 // Call the function when the page loads
 document.addEventListener('DOMContentLoaded', getRandomUser);
-
-});
